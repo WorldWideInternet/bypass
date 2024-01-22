@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynamic Iframe</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 50px;
+    }
+
+    #iframeContainer {
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      z-index: 999999;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Dynamic Iframe</h2>
+<p>Enter the URL you want to iframe:</p>
+
+<form id="urlForm">
+  <input type="text" id="iframeUrl" placeholder="Enter URL" required>
+  <button type="button" onclick="loadIframe()">Load Iframe</button>
+</form>
+
+<div id="iframeContainer"></div>
+
+<script>
+  function loadIframe() {
+    const urlInput = document.getElementById('iframeUrl').value;
+    const iframeContainer = document.getElementById('iframeContainer');
+
+    // Clear previous iframe if any
+    iframeContainer.innerHTML = '';
+
+    // Create a new iframe element
+    const iframe = document.createElement('iframe');
+    iframe.src = urlInput;
+    iframe.style.cssText = 'position: fixed; top: 0; left: 0; bottom: 0; right: 0; width: 100%; height: 100%; border: none; margin: 0; padding: 0; overflow: hidden; z-index: 999999;';
+
+    // Append the iframe to the container
+    iframeContainer.appendChild(iframe);
+  }
+</script>
+
+</body>
+</html>
