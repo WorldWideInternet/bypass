@@ -30,10 +30,11 @@
 <body>
 
 <h2>Dynamic Iframe</h2>
-<p>Enter the URL you want to iframe:</p>
 
+<!-- Form structure with proper form tags -->
 <form id="urlForm">
-  <input type="text" id="iframeUrl" placeholder="Enter URL" required>
+  <label for="iframeUrl">Enter the URL you want to iframe:</label>
+  <input type="text" id="iframeUrl" name="iframeUrl" placeholder="Enter URL" required>
   <button type="button" onclick="loadIframe()">Load Iframe</button>
 </form>
 
