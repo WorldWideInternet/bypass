@@ -1,62 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dynamic Iframe</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      margin: 50px;
-    }
-
-    #iframeContainer {
-      position: fixed;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      right: 0;
-      width: 100%;
-      height: 100%;
-      border: none;
-      margin: 0;
-      padding: 0;
-      overflow: hidden;
-      z-index: 999999;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <title>Choose Site to Iframe</title>
 </head>
 <body>
 
-<h2>Dynamic Iframe</h2>
+<h2>Choose a site to iframe:</h2>
 
-<!-- Form structure with proper form tags -->
-<form id="urlForm">
-  <label for="iframeUrl">Enter the URL you want to iframe:</label>
-  <input type="text" id="iframeUrl" name="iframeUrl" placeholder="Enter URL" required>
-  <button type="button" onclick="loadIframe()">Load Iframe</button>
+<form id="iframeForm">
+    <label for="siteUrl">Enter Site URL:</label>
+    <input type="text" id="siteUrl" placeholder="https://example.com" required>
+    <button type="button" onclick="updateIframe()">Iframe Site</button>
 </form>
 
-<div id="iframeContainer"></div>
+<div id="iframeContainer">
+    <!-- Initial empty iframe -->
+    <iframe id="dynamicIframe" width="100%" height="500px" frameborder="0"></iframe>
+    <a href="#cvv_link" class="cvv_close">X</a>
+</div>
+
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-Tz7Grc3pI6cxl72b/Z8bN56BsCVl6L9Fi5/tBNZrzgI=" crossorigin="anonymous"></script>
 
 <script>
-  function loadIframe() {
-    const urlInput = document.getElementById('iframeUrl').value;
-    const iframeContainer = document.getElementById('iframeContainer');
-
-    // Clear previous iframe if any
-    iframeContainer.innerHTML = '';
-
-    // Create a new iframe element
-    const iframe = document.createElement('iframe');
-    iframe.src = urlInput;
-    iframe.style.cssText = 'position: fixed; top: 0; left: 0; bottom: 0; right: 0; width: 100%; height: 100%; border: none; margin: 0; padding: 0; overflow: hidden; z-index: 999999;';
-
-    // Append the iframe to the container
-    iframeContainer.appendChild(iframe);
-  }
-</script>
-
-</body>
-</html>
+    function updateIframe() {
+        // Get the user-entered
