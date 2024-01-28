@@ -1,27 +1,42 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Choose Site to Iframe</title>
-</head>
-<body>
+<html><head>
+        <title>Fakshidf.zite.ink - Censor Dodge 1.83 BETA</title>
+        <link rel="stylesheet" type="text/css" href="https://fakshidf.zite.ink/plugins/surf/includes/stylesheet.css">
+	<meta name="viewport" content="width=650">
+    </head>
 
-<h2>Choose a site to iframe:</h2>
+    <body>
+        <div id="background"></div>
+        <div id="proxySettings" style="display:none;">
+            <span onclick="document.getElementById('proxySettings').style.display = 'none';" style="cursor:pointer; float: right;">X</span>
+            <h2 style="margin-top:0; margin-bottom:14px;">Proxy Settings:</h2>
+            <div>
+                <form style="margin-bottom:5px;" action="https://fakshidf.zite.ink/" method="POST"><span style="padding-right:20px;"><input type="checkbox" checked="" name="encryptURLs" value="1"> Encrypt URLs</span><span style="padding-right:20px;"><input type="checkbox" checked="" name="allowCookies" value="1"> Allow Cookies</span><span style="padding-right:20px;"><input type="checkbox" name="stripJS" value=""> Remove Javascript</span><span style="padding-right:20px;"><input type="checkbox" name="stripObjects" value=""> Remove Objects</span><br><input style="margin-top: 19px;" type="submit" name="updateSettings" value="Update Settings"><input style="margin-left: 5px;" type="submit" value="Reset" name="resetSettings"></form>            </div>
+        </div>
 
-<form id="iframeForm">
-    <label for="siteUrl">Enter Site URL:</label>
-    <input type="text" id="siteUrl" placeholder="https://example.com" required>
-    <button type="button" onclick="updateIframe()">Iframe Site</button>
-</form>
+        <div id="recentlyViewed" style="display:none;">
+            <span onclick="document.getElementById('recentlyViewed').style.display = 'none';" style="cursor:pointer; float: right;">X</span>
+                        <h2 style="margin-top:0; margin-bottom:14px;">Pages Viewed Today (Total - 81 By 2 Users):</h2>
+            <div id="tableParent" style="max-height: 500px; overflow-y: auto;"><table><thead><tr><td><b>Website</b></td><td><b>View Count</b></td></tr></thead><tbody><tr><td style="padding-right: 80px;">spyro.wiki</td><td>3</td></tr><tr><td style="padding-right: 80px;">github.com</td><td>2</td></tr><tr><td style="padding-right: 80px;">githubassets.com</td><td>76</td></tr></tbody></table></div>        </div>
 
-<div id="iframeContainer">
-    <!-- Initial empty iframe -->
-    <iframe id="dynamicIframe" width="100%" height="500px" frameborder="0"></iframe>
-    <a href="#cvv_link" class="cvv_close">X</a>
-</div>
-
-<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-Tz7Grc3pI6cxl72b/Z8bN56BsCVl6L9Fi5/tBNZrzgI=" crossorigin="anonymous"></script>
-
-<script>
-    function updateIframe() {
-        // Get the user-entered
+        <div id="container">
+            <a href="https://fakshidf.zite.ink/" id="header">Fakshidf.zite.ink</a>
+            <div id="textbox">
+                <script>function goToPage() { event.preventDefault(); var URL = document.getElementsByName('cdURL')[0].value; if (URL!='') { window.location = '?cdURL=' + btoa(URL); } }</script>                <form action="#" method="GET" onsubmit="goToPage();">
+                    <input id="box" type="text" name="cdURL" value="" placeholder="URL" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+                    <input id="button" type="submit" value="Go!">
+                </form>
+            </div>
+            <div id="options">
+                <table style="width:100%;">
+                    <tbody><tr>
+                        <td><a onclick="document.getElementById('proxySettings').style.display = 'block';" style="cursor:pointer; color:#000; text-decoration: none;">Proxy Settings</a></td>
+                        <td><a onclick="document.getElementById('recentlyViewed').style.display = 'block';" style="position: relative;left: 17%;cursor:pointer; color:#000; text-decoration: none; text-align:center;">Recently Viewed</a></td>
+                        <td>
+                            <a href="?clearCookies" style="color:#000; text-decoration: none; float:right;">Clear Cookies</a>                        </td>
+                    </tr>
+                </tbody></table>
+            </div>
+        </div>
+        <div id="poweredby">Powered By <a href="http://censordodge.com" target="blank">Censor Dodge V1.83 BETA</a></div>
+    
+</body></html>
