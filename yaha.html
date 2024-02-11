@@ -21,7 +21,17 @@
         <div id="container">
             <a href="https://yousuck.yaha.pro/" id="header">Yousuck.yaha.pro</a>
             <div id="textbox">
-                <script>function goToPage() { event.preventDefault(); var URL = document.getElementsByName('cdURL')[0].value; if (URL!='') { window.location = '?cdURL=' + btoa(URL); } }</script>                <form action="#" method="GET" onsubmit="goToPage();">
+                <script>
+			<script>
+function goToPage(event) {
+    event.preventDefault();
+    var URL = document.getElementsByName('cdURL')[0].value;
+    if (URL != '') {
+        window.location = '?cdURL=' + btoa(URL);
+    }
+}
+</script>
+</script>                <form action="#" method="GET" onsubmit="goToPage();">
                     <input id="box" type="text" name="cdURL" value="" placeholder="URL" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
                     <input id="button" type="submit" value="Go!">
                 </form>
